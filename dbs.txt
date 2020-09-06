@@ -1,0 +1,30 @@
+
+
+    create table students(
+                          id int ,
+                          name varchar(20) not null,
+                          age int,
+                          address char(25),
+                          primary key(id)
+    );
+    insert into students values(001,'yashodha',22,'karwar');
+    insert into students values(002,'namita',20,'mangalore');
+    insert into students values(003,'yogita',25,'kumata');
+    insert into students values(004,'sandhya',26,'udupi');
+    insert into students values(005,'kalpita',21,'bangalore');                                  
+
+---
+
+**Query #1**
+
+    select * from students;
+
+| id  | name     | age | address   |
+| --- | -------- | --- | --------- |
+| 1   | yashodha | 22  | karwar    |
+| 2   | namita   | 20  | mangalore |
+| 3   | yogita   | 25  | kumata    |
+| 4   | sandhya  | 26  | udupi     |
+| 5   | kalpita  | 21  | bangalore |
+
+---
