@@ -1,0 +1,18 @@
+**Schema (MySQL v5.7)**
+
+    create table book_copies(book_id integer,branch_id integer,no_of_copies integer,primary key(book_id,branch_id));
+     insert into book_copies values(10,2,11);
+    insert into book_copies values(11,3,15);
+        insert into book_copies values(12,4,18);
+     insert into book_copies values(13,5,12);   
+      insert into book_copies values(14,6,20);                                      
+
+---
+
+**Query #1**
+
+    select * from book_copies where book_id=23;
+
+There are no results to be displayed.
+
+---
