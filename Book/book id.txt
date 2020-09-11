@@ -1,0 +1,21 @@
+
+
+    Create table book(book_id integer primary key,title varchar(20), publisher_name varchar(20), pub_year varchar(20));
+    insert into book values(001,'DBMS','mcgraw','jan 2000');  
+    insert into book values(002,'OS',' abraham','june 2001');    
+    insert into book values(003,'CN','pearson','june 2002');       
+    insert into book values(004,'JAVA','herber','jan 2003');      
+    insert into book values(005,'C','dennis ','jan 2020');                                                          
+
+---
+
+**Query #1**
+
+    select * from book where book_id=004;
+
+| book_id | title | publisher_name | pub_year |
+| ------- | ----- | -------------- | -------- |
+| 4       | JAVA  | herber         | jan 2003 |
+
+---
+
