@@ -1,0 +1,104 @@
+**Schema (MySQL v5.7)**
+
+    create table STUDENT(ssn integer,name varchar(10),major varchar(10),Bdate date,primary key(ssn));
+    create table COURSE(course_id integer,cname varchar(20),Dept varchar(20),primary key(course_id));
+    create table TEXT_BOOK(book_ISBN integer,book_title varchar(20),publisher varchar(20),author varchar(20),primary key(book_ISBN));
+    create table BOOK_ADOPTION(course_id integer, quarter integer, book_ISBN integer,primary key(quarter),foreign key(course_id) references COURSE(course_id),foreign key(book_ISBN) references TEXT_BOOK(book_ISBN));
+    create table ENROLL(ssn integer,course_id integer,quarter integer,grade varchar(5),primary key(ssn,course_id,quarter),foreign key(ssn) references STUDENT(ssn),foreign key(course_id) references COURSE(course_id),foreign key(quarter) references BOOK_ADOPTION(quarter));            
+    
+    insert into STUDENT values  (001,'reeta','cs','2018-03-20');
+    insert into STUDENT values  (002,'reena','mt','2019-05-12');
+    insert into STUDENT values   (003,'johny','cs','2009-02-10');
+    insert into STUDENT values  (004,'karna','ec','2001-03-07');
+    insert into STUDENT values  (005,'adi','cv','2020-03-03');
+    
+    insert into COURSE values(101,'OOC','cs');
+    insert into COURSE values(102,'JAVA','ec');
+    insert into COURSE values(103,'SE','cv');
+    insert into COURSE values(104,'C','is');
+    insert into COURSE values(105,'CN','mt');
+    
+    insert into TEXT_BOOK values(201,'OOC','bangalore','mcgrew');
+    insert into TEXT_BOOK values(202,'DAA','mangalore','person');
+    insert into TEXT_BOOK values    (203,'ATC','chennai','SAM paul');
+    insert into TEXT_BOOK values(204,'MES','udupi','padma');
+    insert into TEXT_BOOK values (205,'DMS','hubli','shree');
+    
+    insert into BOOK_ADOPTION values(102,4,202);
+    insert into BOOK_ADOPTION values(104,1,204);
+    insert into BOOK_ADOPTION values(101,5,202);
+    insert into BOOK_ADOPTION values(103,3,205);
+    insert into BOOK_ADOPTION values(105,2,201);
+                                     
+    
+    insert into ENROLL values(003,105,2,'A');
+    insert into ENROLL values(001,102,3,'B');
+    insert into ENROLL values(004,104,1,'A');
+    insert into ENROLL values(005,105,4,'D');
+    insert into ENROLL values(002,103,5,'C');
+
+---
+
+**Query #1**
+
+    select * from STUDENT;
+
+| ssn | name  | major | Bdate      |
+| --- | ----- | ----- | ---------- |
+| 1   | reeta | cs    | 2018-03-20 |
+| 2   | reena | mt    | 2019-05-12 |
+| 3   | johny | cs    | 2009-02-10 |
+| 4   | karna | ec    | 2001-03-07 |
+| 5   | adi   | cv    | 2020-03-03 |
+
+---
+**Query #2**
+
+    select *from COURSE;
+
+| course_id | cname | Dept |
+| --------- | ----- | ---- |
+| 101       | OOC   | cs   |
+| 102       | JAVA  | ec   |
+| 103       | SE    | cv   |
+| 104       | C     | is   |
+| 105       | CN    | mt   |
+
+---
+**Query #3**
+
+    select * from TEXT_BOOK;
+
+| book_ISBN | book_title | publisher | author   |
+| --------- | ---------- | --------- | -------- |
+| 201       | OOC        | bangalore | mcgrew   |
+| 202       | DAA        | mangalore | person   |
+| 203       | ATC        | chennai   | SAM paul |
+| 204       | MES        | udupi     | padma    |
+| 205       | DMS        | hubli     | shree    |
+
+---
+**Query #4**
+
+    select *from BOOK_ADOPTION;
+
+| course_id | quarter | book_ISBN |
+| --------- | ------- | --------- |
+| 104       | 1       | 204       |
+| 105       | 2       | 201       |
+| 103       | 3       | 205       |
+| 102       | 4       | 202       |
+| 101       | 5       | 202       |
+
+---
+**Query #5**
+
+    select * from ENROLL;
+
+| ssn | course_id | quarter | grade |
+| --- | --------- | ------- | ----- |
+| 1   | 102       | 3       | B     |
+| 2   | 103       | 5       | C     |
+| 3   | 105       | 2       | A     |
+| 4   | 104       | 1       | A     |
+| 5   | 105       | 4       | D     |
