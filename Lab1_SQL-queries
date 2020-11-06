@@ -139,4 +139,26 @@ There are no results to be displayed.
 | 50      | 500       | 202     | 2017-03-10 | 2017-04-20 |
 | 50      | 500       | 205     | 2017-09-01 | 2017-09-10 |
 
+
+
+---
+
+**Query #5**
+
+    Create view v1 as Select Title,B.Book_id,sum(No_of_copies) from BOOK B,BOOK_COPIES BC where B.Book_id=BC.Book_id group by Book_id,title;
+
+There are no results to be displayed.
+
+---
+**Query #6**
+
+    select * from v1;
+
+| Title | Book_id | sum(No_of_copies) |
+| ----- | ------- | ----------------- |
+| DBMS  | 10      | 25                |
+| SE    | 20      | 15                |
+| FLAT  | 30      | 30                |
+| BDA   | 40      | 7                 |
+
 ---
