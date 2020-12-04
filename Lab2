@@ -80,3 +80,71 @@
 | 40          | KIRAN |
 
 ---
+**Query #1**
+
+    CREATE VIEW BEST_SALESMAN AS
+    SELECT SALESMAN_ID ,ORD_DATE,PURCHASE_AMT
+    FROM ORDERS
+    WHERE PURCHASE_AMT IN(
+      	SELECT MAX(PURCHASE_AMT)
+      	FROM ORDERS 
+      	GROUP BY ORD_DATE);
+
+There are no results to be displayed.
+
+---
+**Query #2**
+
+    SELECT * FROM SALESMAN;
+
+| SALESMAN_ID | NAME     | CITY      | COMMISION |
+| ----------- | -------- | --------- | --------- |
+| 10          | AKASH    | MANGALORE | 2         |
+| 20          | RAM      | BANGALORE | 10        |
+| 30          | RAJ      | MANGALORE | 5         |
+| 40          | KIRAN    | MYSORE    | 15        |
+| 50          | YASHODHA | BANGALORE | 3         |
+
+---
+**Query #3**
+
+    DELETE FROM SALESMAN WHERE SALESMAN_ID=10;
+
+There are no results to be displayed.
+
+---
+**Query #4**
+
+    SELECT * FROM SALESMAN;
+
+| SALESMAN_ID | NAME     | CITY      | COMMISION |
+| ----------- | -------- | --------- | --------- |
+| 20          | RAM      | BANGALORE | 10        |
+| 30          | RAJ      | MANGALORE | 5         |
+| 40          | KIRAN    | MYSORE    | 15        |
+| 50          | YASHODHA | BANGALORE | 3         |
+
+---
+**Query #5**
+
+    SELECT * FROM CUSTOMER;
+
+| CUSTOMER_ID | CUST_NAME | CITY      | GRADE | SALESMAN_ID |
+| ----------- | --------- | --------- | ----- | ----------- |
+| 2000        | KUMAR     | BANGALORE | 200   | 20          |
+| 3000        | PREETHI   | MYSORE    | 300   | 40          |
+| 4000        | SMITHA    | MANGALORE | 400   | 30          |
+| 5000        | AMBIG     | MYSORE    | 400   | 30          |
+
+---
+**Query #6**
+
+    SELECT * FROM ORDERS;
+
+| ORD_NO | PURCHASE_AMT | ORD_DATE   | CUSTOMER_ID | SALESMAN_ID |
+| ------ | ------------ | ---------- | ----------- | ----------- |
+| 552    | 2500         | 2020-02-05 | 2000        | 20          |
+| 553    | 500          | 2020-03-03 | 3000        | 40          |
+| 554    | 1500         | 2020-04-02 | 4000        | 30          |
+| 556    | 3500         | 2020-01-03 | 2000        | 30          |
+
