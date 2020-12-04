@@ -106,14 +106,14 @@ There are no results to be displayed.
 | 50          | YASHODHA | BANGALORE | 3         |
 
 ---
-**Query #3**
+**Query #1**
 
     DELETE FROM SALESMAN WHERE SALESMAN_ID=10;
 
 There are no results to be displayed.
 
 ---
-**Query #4**
+**Query #2**
 
     SELECT * FROM SALESMAN;
 
@@ -125,7 +125,7 @@ There are no results to be displayed.
 | 50          | YASHODHA | BANGALORE | 3         |
 
 ---
-**Query #5**
+**Query #3**
 
     SELECT * FROM CUSTOMER;
 
@@ -137,7 +137,7 @@ There are no results to be displayed.
 | 5000        | AMBIG     | MYSORE    | 400   | 30          |
 
 ---
-**Query #6**
+**Query #4**
 
     SELECT * FROM ORDERS;
 
